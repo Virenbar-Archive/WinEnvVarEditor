@@ -1,80 +1,111 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinEnvVarEditor.Locale;
+using WinEnvVarEditor.Types;
 
 namespace WinEnvVarEditor
 {
 	public partial class FormMain : Form
 	{
-		private RegHelper RH = new RegHelper();
-		private EnvVar CurrentVar;
+		private UC_EnvVarTree CurrentTree;
+		private EnvVarStore SystemStore = EnvVarStore.GetSystemTree();
+		private EnvVarStore UserStore = EnvVarStore.GetUserTree();
 
 		public FormMain()
 		{
 			InitializeComponent();
+
+			UserStore.Refresh();
+			EVT_User.SetStore(UserStore);
+			EVT_User.SelectionChanged += CurrentTree_SelectionChanged;
+
+			SystemStore.Refresh();
+			EVT_System.SetStore(SystemStore);
+			EVT_System.SelectionChanged += CurrentTree_SelectionChanged;
+
+			CurrentTree = EVT_User;
+
+			L_Variables.Text = Strings.L_Variables;
+			TSB_Add.Text = Strings.B_Add;
+			TSB_Edit.Text = Strings.B_Edit;
+			TSB_Delete.Text = Strings.B_Delete;
+
+			L_Values.Text = Strings.L_Values;
+			TSB_AddV.Text = Strings.B_Add;
+			TSB_EditV.Text = Strings.B_Edit;
+			TSB_DeleteV.Text = Strings.B_Delete;
 		}
 
-		private void TV_User_AfterSelect(object sender, TreeViewEventArgs e)
+		private EnvVarValue CurrentValue => CurrentTree?.CurrentValue;
+
+		private EnvVar CurrentVar => CurrentTree?.CurrentVar;
+
+		private void RefreshUI()
 		{
-			var N = e.Node.Tag;
-			CurrentVar = N is EnvVar ? (EnvVar)e.Node.Tag : (EnvVar)e.Node.Parent.Tag;
+			TS_Main.Enabled = CurrentTree?.Store != null;
+			if (!TS_Main.Enabled) { return; }
+
+			var CanEdit = CurrentVar != null && CurrentVar.State != State.Deleted;
+			TSB_Edit.Enabled = CanEdit;
+			TSB_Delete.Enabled = CanEdit;
+
+			var CanEditV = CurrentValue != null && CurrentValue.State != State.Deleted;
+			TSB_AddV.Enabled = CurrentVar != null && CurrentVar.State != State.Deleted;
+			TSB_EditV.Enabled = CanEditV;
+			TSB_DeleteV.Enabled = CanEditV;
 		}
 
-		private void UpdateTree(TreeView Tree, List<EnvVar> Vars)
+		#region UIEvents
+
+		private void CurrentTree_SelectionChanged(object sender, EventArgs e) { RefreshUI(); }
+
+		private void FormMain_Load(object sender, EventArgs e) { }
+
+		private void MI_About_Click(object sender, EventArgs e) { new FormAboutBox().ShowDialog(this); }
+
+		private void TC_Main_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Tree.BeginUpdate();
-			Tree.Nodes.Clear();
-			foreach (var Var in Vars)
+			var Tab = TC_Main.SelectedTab.Name;
+			if (Tab == TP_User.Name)
 			{
-				var VarNode = new TreeNode(Var.Name)
-				{
-					ImageIndex = Var.IsExpand ? 1 : 0,
-					Tag = Var
-				};
-				if (Var.Values.Count > 1)
-				{
-					VarNode.Text += " (...)";
-					VarNode.Nodes.AddRange(Var.Values.Select(V => new TreeNode(V.Value) { Tag = V }).ToArray());
-				}
-				else
-				{
-					VarNode.Text += $": {Var.Value}";
-				}
-				Tree.Nodes.Add(VarNode);
+				CurrentTree = EVT_User;
 			}
-
-			Tree.EndUpdate();
+			else if (Tab == TP_System.Name)
+			{
+				CurrentTree = EVT_System;
+			}
+			else { }
+			RefreshUI();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void TSB_Add_Click(object sender, EventArgs e)
 		{
-			RefreshData();
+			var Var = new EnvVar();
+			var F = new FormVariableEdit(Var);
+			if (F.ShowDialog(this) == DialogResult.OK)
+			{
+				CurrentTree.Store.AddVariable(Var);
+			}
 		}
 
-		private void RefreshData()
+		private void TSB_AddV_Click(object sender, EventArgs e)
 		{
-			var e1 = RH.GetUserVars();
-			var e2 = RH.GetSystemVars();
-
-			UpdateTree(TV_User, e1);
-			UpdateTree(TV_System, e2);
+			var Value = new EnvVarValue();
+			var F = new FormValueEdit(CurrentVar, Value);
+			if (F.ShowDialog(this) == DialogResult.OK)
+			{
+				CurrentVar.AddValue(Value);
+			}
 		}
 
-		private void FormMain_Load(object sender, EventArgs e)
-		{
-			RefreshData();
-		}
+		private void TSB_Delete_Click(object sender, EventArgs e) { CurrentVar.SetDeleted(); }
 
-		private void MI_About_Click(object sender, EventArgs e)
-		{
-			var F = new FormAboutBox();
-			F.ShowDialog(this);
-		}
+		private void TSB_DeleteV_Click(object sender, EventArgs e) { CurrentValue.SetDeleted(); }
+
+		private void TSB_Edit_Click(object sender, EventArgs e) { new FormVariableEdit(CurrentVar).ShowDialog(this); }
+
+		private void TSB_EditV_Click(object sender, EventArgs e) { new FormValueEdit(CurrentVar, CurrentValue).ShowDialog(this); }
+
+		#endregion UIEvents
 	}
 }

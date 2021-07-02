@@ -70,6 +70,51 @@ namespace WinEnvVarEditor.Locale {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add.
+        /// </summary>
+        internal static string B_Add {
+            get {
+                return ResourceManager.GetString("B_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete.
+        /// </summary>
+        internal static string B_Delete {
+            get {
+                return ResourceManager.GetString("B_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit.
+        /// </summary>
+        internal static string B_Edit {
+            get {
+                return ResourceManager.GetString("B_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Values.
+        /// </summary>
+        internal static string L_Values {
+            get {
+                return ResourceManager.GetString("L_Values", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Variables.
+        /// </summary>
+        internal static string L_Variables {
+            get {
+                return ResourceManager.GetString("L_Variables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Version.
         /// </summary>
         internal static string Version {

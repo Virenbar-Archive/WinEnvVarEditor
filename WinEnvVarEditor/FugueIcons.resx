@@ -117,25 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>О программе</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ArrowCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\arrowcircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Version" xml:space="preserve">
-    <value>Версия</value>
+  <data name="Bookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\bookmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B_Add" xml:space="preserve">
-    <value>Добавить</value>
+  <data name="BookmarkMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\bookmarkminus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B_Delete" xml:space="preserve">
-    <value>Удалить</value>
+  <data name="BookmarkPencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\bookmarkpencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B_Edit" xml:space="preserve">
-    <value>Изменить</value>
+  <data name="BookmarkPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\bookmarkplus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="L_Values" xml:space="preserve">
-    <value>Значения</value>
+  <data name="CrossCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\crosscircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="L_Variables" xml:space="preserve">
-    <value>Переменные</value>
+  <data name="TagExclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tagexclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagExport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tagexport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagLabelGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\taglabelgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagLabelYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\taglabelyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tagminus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagPencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tagpencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TagPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tagplus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TickCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\fugueicons\tickcircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

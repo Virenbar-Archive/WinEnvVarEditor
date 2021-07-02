@@ -120,6 +120,21 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="B_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="B_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="B_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="L_Values" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="L_Variables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
   </data>

@@ -46,21 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAboutBox.cs">
+    <Compile Include="Types\EnvVarStore.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Forms\FormAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAboutBox.Designer.cs">
+    <Compile Include="Forms\FormAboutBox.Designer.cs">
       <DependentUpon>FormAboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnvVar.cs" />
-    <Compile Include="EnvVarValue.cs" />
+    <Compile Include="Types\EnvVar.cs" />
+    <Compile Include="Types\EnvVarValue.cs" />
+    <Compile Include="Forms\FormValueEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormValueEdit.Designer.cs">
+      <DependentUpon>FormValueEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVariableEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVariableEdit.Designer.cs">
+      <DependentUpon>FormVariableEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FugueIcons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FugueIcons.resx</DependentUpon>
+    </Compile>
     <Compile Include="Locale\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegHelper.cs" />
-    <Compile Include="VarType.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="Types\ObservableObject.cs" />
+    <Compile Include="UC_EnvVarTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_EnvVarTree.Designer.cs">
+      <DependentUpon>UC_EnvVarTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +94,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAboutBox.resx">
+    <EmbeddedResource Include="Forms\FormAboutBox.resx">
       <DependentUpon>FormAboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormValueEdit.resx">
+      <DependentUpon>FormValueEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVariableEdit.resx">
+      <DependentUpon>FormVariableEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FugueIcons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FugueIcons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Locale\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +124,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UC_EnvVarTree.resx">
+      <DependentUpon>UC_EnvVarTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +140,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FugueIcons\ArrowCircle.png" />
+    <Content Include="Resources\FugueIcons\Bookmark.png" />
+    <Content Include="Resources\FugueIcons\BookmarkMinus.png" />
+    <Content Include="Resources\FugueIcons\BookmarkPencil.png" />
+    <Content Include="Resources\FugueIcons\BookmarkPlus.png" />
+    <Content Include="Resources\FugueIcons\CrossCircle.png" />
+    <Content Include="Resources\FugueIcons\TagExclamation.png" />
+    <Content Include="Resources\FugueIcons\TagExport.png" />
+    <Content Include="Resources\FugueIcons\TagLabelGreen.png" />
+    <Content Include="Resources\FugueIcons\TagLabelYellow.png" />
+    <Content Include="Resources\FugueIcons\TagMinus.png" />
+    <Content Include="Resources\FugueIcons\TagPencil.png" />
+    <Content Include="Resources\FugueIcons\TagPlus.png" />
+    <Content Include="Resources\FugueIcons\TickCircle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
