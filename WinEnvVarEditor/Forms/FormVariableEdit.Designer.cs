@@ -36,8 +36,8 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.CB_Expand = new System.Windows.Forms.CheckBox();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -146,6 +146,16 @@
 			this.label2.TabIndex = 11;
 			this.label2.Text = "Value";
 			// 
+			// CB_Expand
+			// 
+			this.CB_Expand.AutoSize = true;
+			this.CB_Expand.Location = new System.Drawing.Point(63, 64);
+			this.CB_Expand.Name = "CB_Expand";
+			this.CB_Expand.Size = new System.Drawing.Size(237, 17);
+			this.CB_Expand.TabIndex = 12;
+			this.CB_Expand.Text = "Is Expandeble (Allow using of %EnvVar%)";
+			this.CB_Expand.UseVisualStyleBackColor = true;
+			// 
 			// tableLayoutPanel2
 			// 
 			this.tableLayoutPanel2.AutoSize = true;
@@ -161,16 +171,6 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 35);
 			this.tableLayoutPanel2.TabIndex = 14;
-			// 
-			// CB_Expand
-			// 
-			this.CB_Expand.AutoSize = true;
-			this.CB_Expand.Location = new System.Drawing.Point(63, 64);
-			this.CB_Expand.Name = "CB_Expand";
-			this.CB_Expand.Size = new System.Drawing.Size(237, 17);
-			this.CB_Expand.TabIndex = 12;
-			this.CB_Expand.Text = "Is Expandeble (Allow using of %EnvVar%)";
-			this.CB_Expand.UseVisualStyleBackColor = true;
 			// 
 			// FormVariableEdit
 			// 
