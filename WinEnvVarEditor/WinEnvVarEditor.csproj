@@ -1,161 +1,62 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13814612-96FB-4F52-9287-E3A2FF4A24C5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WinEnvVarEditor</RootNamespace>
-    <AssemblyName>WinEnvVarEditor</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Types\EnvVarStore.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Forms\FormAboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormAboutBox.Designer.cs">
-      <DependentUpon>FormAboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Types\EnvVar.cs" />
-    <Compile Include="Types\EnvVarValue.cs" />
-    <Compile Include="Forms\FormValueEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormValueEdit.Designer.cs">
-      <DependentUpon>FormValueEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormVariableEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormVariableEdit.Designer.cs">
-      <DependentUpon>FormVariableEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FugueIcons.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FugueIcons.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Locale\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="State.cs" />
-    <Compile Include="Types\ObservableObject.cs" />
-    <Compile Include="UC_EnvVarTree.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_EnvVarTree.Designer.cs">
-      <DependentUpon>UC_EnvVarTree.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormAboutBox.resx">
-      <DependentUpon>FormAboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormValueEdit.resx">
-      <DependentUpon>FormValueEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormVariableEdit.resx">
-      <DependentUpon>FormVariableEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FugueIcons.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FugueIcons.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locale\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locale\Strings.ru.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="UC_EnvVarTree.resx">
-      <DependentUpon>UC_EnvVarTree.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\FugueIcons\ArrowCircle.png" />
-    <Content Include="Resources\FugueIcons\Bookmark.png" />
-    <Content Include="Resources\FugueIcons\BookmarkMinus.png" />
-    <Content Include="Resources\FugueIcons\BookmarkPencil.png" />
-    <Content Include="Resources\FugueIcons\BookmarkPlus.png" />
-    <Content Include="Resources\FugueIcons\CrossCircle.png" />
-    <Content Include="Resources\FugueIcons\TagExclamation.png" />
-    <Content Include="Resources\FugueIcons\TagExport.png" />
-    <Content Include="Resources\FugueIcons\TagLabelGreen.png" />
-    <Content Include="Resources\FugueIcons\TagLabelYellow.png" />
-    <Content Include="Resources\FugueIcons\TagMinus.png" />
-    <Content Include="Resources\FugueIcons\TagPencil.png" />
-    <Content Include="Resources\FugueIcons\TagPlus.png" />
-    <Content Include="Resources\FugueIcons\TickCircle.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<UseWindowsForms>true</UseWindowsForms>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Company>Virenbar</Company>
+		<Copyright>Copyright © Virenbar 2021</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Update="FugueIcons.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>FugueIcons.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Locale\Strings.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Strings.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="UC_EnvVarTree.resx">
+			<DependentUpon>UC_EnvVarTree.cs</DependentUpon>
+		</EmbeddedResource>
+		<None Include="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Resources\FugueIcons\ArrowCircle.png" />
+		<Resource Include="Resources\FugueIcons\Bookmark.png" />
+		<Resource Include="Resources\FugueIcons\BookmarkMinus.png" />
+		<Resource Include="Resources\FugueIcons\BookmarkPencil.png" />
+		<Resource Include="Resources\FugueIcons\BookmarkPlus.png" />
+		<Resource Include="Resources\FugueIcons\CrossCircle.png" />
+		<Resource Include="Resources\FugueIcons\TagExclamation.png" />
+		<Resource Include="Resources\FugueIcons\TagExport.png" />
+		<Resource Include="Resources\FugueIcons\TagLabelGreen.png" />
+		<Resource Include="Resources\FugueIcons\TagLabelYellow.png" />
+		<Resource Include="Resources\FugueIcons\TagMinus.png" />
+		<Resource Include="Resources\FugueIcons\TagPencil.png" />
+		<Resource Include="Resources\FugueIcons\TagPlus.png" />
+		<Resource Include="Resources\FugueIcons\TickCircle.png" />
+	</ItemGroup>
 </Project>
